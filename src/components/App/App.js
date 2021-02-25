@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import OptionsPanel from "../OptionsPanel";
 import Board from "../Board";
 import { createTiles, indexOfSelected } from "../../misc/utils";
-import GameContext from "../../GameContext.js";
+import GameContext from "../../GameContext";
 
 import "./App.css";
 
