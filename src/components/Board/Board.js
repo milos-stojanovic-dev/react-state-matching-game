@@ -9,7 +9,6 @@ const Board = (props) => {
   };
 
   const mapTiles = props.tiles.map((tile) => <Tile {...tile} />);
-  console.log(mapTiles);
   return (
     <div className="Board" style={gridConfig}>
       {mapTiles}
