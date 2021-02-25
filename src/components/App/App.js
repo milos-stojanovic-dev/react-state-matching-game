@@ -37,7 +37,10 @@ class App extends Component {
       if (previousTileIndex !== null) {
         let previousTile = tiles[previousTileIndex];
         let selectedTile = tiles[selectedTileIndex];
-        if (previousTile.id !== selectedTile.id && previousTile.color === color) {
+        if (
+          previousTile.id !== selectedTile.id &&
+          previousTile.color === color
+        ) {
           selectedTile.matched = true;
           previousTile.matched = true;
           previousTileIndex = null;
@@ -51,7 +54,7 @@ class App extends Component {
       return {
         tiles,
         toBeCleared,
-        previousTileIndex
+        previousTileIndex,
       };
     });
   };
@@ -67,11 +70,20 @@ class App extends Component {
     });
   };
 
+  handleNumTileChange = (num) => {
+    this.setState({
+      numTiles: num,
+      playing: false,
+      tiles: [],
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <header className="App-header">Turbo-Matcher</header>
         <OptionsPanel
+          handleNumTileChange={this.handleNumTileChange}
           startGame={this.startGame}
           playing={this.state.playing}
           numTiles={this.state.numTiles}
